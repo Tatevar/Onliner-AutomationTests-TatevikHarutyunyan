@@ -25,9 +25,3 @@ public class SelenideConfigurations {
         });
     }
 }
-
-
-//selenide.configs=browserSize=1920x1440:headless=false
-//browserSize=1920x1440:headless=false
-//[browserSize=1920x1440, headless=false]
-//MAP browserSize=1920x1440, headless=false

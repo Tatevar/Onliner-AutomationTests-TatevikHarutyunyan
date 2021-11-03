@@ -1,15 +1,16 @@
 package Driver;
 
-import TestNg.Listener;
+import TestNg.ListenerSelenide;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Listeners;
 import properties.PropertyReader;
 
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.driver;
 
 @Log4j2
-@Listeners(Listener.class)
+@Listeners(ListenerSelenide.class)
 public class BaseTestSelenide {
 
     public <PageObjectClass> PageObjectClass get(Class<PageObjectClass> pageObjectClassClass) {
