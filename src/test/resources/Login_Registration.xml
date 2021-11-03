@@ -3,9 +3,9 @@
 <suite name="Login">
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
-    <test name="LoginTests">
+    <test name="Login-Registration">
         <classes>
-            <class name="LoginTests.LoginToApp"></class>
+            <class name="LoginTests.Login_Registration"></class>
         </classes>
     </test>
 </suite>
