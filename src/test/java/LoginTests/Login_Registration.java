@@ -36,7 +36,7 @@ public class Login_Registration extends BaseTest {
         homePage.clickLoginbtn();
         loginPage.loginWithUserData(user);
     }
-
+//This case found a bug , User can create different accounts with the same email address
     @Test
     public void createUser_test() {
         homePage.clickLoginbtn();
