@@ -5,7 +5,7 @@
     <parameter name="browser" value="Chrome"></parameter>
     <test name="Login-Registration">
         <classes>
-            <class name="LoginTests.Login_Registration"></class>
+            <class name="LoginTests.RegistrationUser"></class>
         </classes>
     </test>
 </suite>

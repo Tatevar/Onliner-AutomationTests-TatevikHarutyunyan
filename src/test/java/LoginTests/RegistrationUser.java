@@ -5,20 +5,23 @@ import PageFactory.Registration;
 import PageObject.HomePage;
 import PageObject.LoginPage;
 import Patterns.UserBuilder;
+import Patterns.UserCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Login_Registration extends BaseTest {
+public class RegistrationUser extends BaseTest {
     HomePage homePage;
     LoginPage loginPage;
-    Registration registration;
+    PageFactory.Registration registration;
+    UserCreation userCreation;
 
     @BeforeClass
     public void initialization() {
         homePage = new HomePage();
         loginPage = new LoginPage();
-        registration = new Registration();
+        registration = new PageFactory.Registration();
+        userCreation = new UserCreation();
     }
 
     @BeforeMethod
@@ -26,23 +29,13 @@ public class Login_Registration extends BaseTest {
         homePage.openPage();
     }
 
-    //@Test
-    public void LoginToHomePage_test() {
-        UserBuilder user = UserBuilder
-                .builder()
-                .username("tatevar93@gmail.com")
-                .password("onlinertest")
-                .build();
-        homePage.clickLoginbtn();
-        loginPage.loginWithUserData(user);
-    }
 //This case found a bug , User can create different accounts with the same email address
     @Test
     public void createUser_test() {
         homePage.clickLoginbtn();
         loginPage.clickRegbtn();
-        registration.createUser("tata@zenia.com","password55","password55")
-                    .verifyConfirmPage();
+        registration.createUser(userCreation)
+                    .checkConfirmationText("Перейти в почту Gmail");
     }
 }
 
