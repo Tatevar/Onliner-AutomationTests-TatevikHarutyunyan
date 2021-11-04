@@ -1,16 +1,14 @@
-package LoginTests;
+package Authorization;
 
-import Driver.BaseTest;
-import PageFactory.Registration;
+import Driver.BaseTestSelenium;
 import PageObject.HomePage;
 import PageObject.LoginPage;
-import Patterns.UserBuilder;
 import Patterns.UserCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class RegistrationUser extends BaseTest {
+public class RegistrationUser extends BaseTestSelenium {
     HomePage homePage;
     LoginPage loginPage;
     PageFactory.Registration registration;

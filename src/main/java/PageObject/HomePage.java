@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 
 public class HomePage extends BasePage {
     private By loginBtn = By.xpath(" //*[@class='auth-bar__item auth-bar__item--text']");
-    private By loginForm = By.cssSelector("[data-test=password]");
+    private By HomePageLogoDisplayed = By.cssSelector(".onliner_logo");
+
 
     public HomePage openPage() {
         open();
@@ -14,4 +15,9 @@ public class HomePage extends BasePage {
         click(loginBtn);
         return this;
     }
+    public HomePage  verifyHomePage() {
+        click(HomePageLogoDisplayed);
+        return this;
+    }
+
 }
