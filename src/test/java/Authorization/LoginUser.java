@@ -53,7 +53,6 @@ public class LoginUser extends BaseTestSelenium {
         loginPage.loginWithUserData(user)
                 .errorTextIsShown(errorText);
     }
-    @Parameters({"errorText"})
     @Test
     public void LoginUserWithEmptySubmit_test() {
         UserBuilder user = UserBuilder
