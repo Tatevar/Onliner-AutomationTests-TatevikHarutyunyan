@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class AddingProduct extends BaseTestSelenide {
     @Test
-    public void verifyTestimonialsPage_Test() {
+    public void addAProduct(){
         get(HomePageSelenide.class).openProduct();
     }
 }

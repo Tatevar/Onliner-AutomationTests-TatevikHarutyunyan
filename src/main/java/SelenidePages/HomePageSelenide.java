@@ -1,25 +1,26 @@
 package SelenidePages;
 
-import PageObject.HomePage;
+
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byXpath;
+import javax.annotation.Nonnull;
+
 import static com.codeborne.selenide.Selenide.$;
-import static org.openqa.selenium.By.linkText;
 
 public class HomePageSelenide  {
-    SelenideElement  loginBtn = $(By.xpath(" //*[@class='auth-bar__item auth-bar__item--text']"));
-    SelenideElement  category =$(By.xpath("//span[contains(text(),'Красота и')]"));
-    SelenideElement  categoryList = $( By.cssSelector(".catalog-navigation-list__aside-item.catalog-navigation-list__aside-item_active .catalog-navigation-list__aside-title"));
-    SelenideElement categoryItem = $(linkText("gascylinder"));
+    SelenideElement  category =$(By.xpath("//div[@class='g-middle-i']//span[contains(text(),'Красота и')]"));
+    SelenideElement  categoryList = $( By.xpath("//div[@class='catalog-navigation-list__aside-title'][contains(text(),'Туризм и')]"));
+    SelenideElement categoryItem = $(By.xpath("//a[contains(@href,'gascylinder')]"));
 
-    public HomePageSelenide openProduct() {
+    @Nonnull
+    @CanIgnoreReturnValue
+    public HomePageSelenide openProduct(){
        category.click();
         Selenide.actions().moveToElement(categoryList).click(categoryList).perform();
+        categoryItem.scrollTo().click();
         return this;
     }
 }
