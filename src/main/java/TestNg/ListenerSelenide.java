@@ -2,6 +2,7 @@ package TestNg;
 
 import Driver.DriverCreation;
 import Driver.SelenideConfigurations;
+import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -22,7 +23,7 @@ import static Driver.DriverCreation.getDriver;
 public class ListenerSelenide implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
-        byte[] file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+        byte[] file = ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
         saveScreenshots(file);
     }
 
@@ -31,32 +32,10 @@ public class ListenerSelenide implements ITestListener {
         PropertyReader propertyReader = new PropertyReader();
         propertyReader.setProperties(context.getSuite().getParameter("env") == null ? System.getProperties().getProperty("env") : context.getSuite().getParameter("env"));
         new SelenideConfigurations(propertyReader);
-        clearTestsResults();
-    }
-
-    @Override
-    public void onFinish(ITestContext context) {
-        DriverCreation.quitDriver();
     }
 
     @Attachment(value = "Screenshots", type = "image/png")
     private byte[] saveScreenshots(byte[] s) {
         return s;
     }
-
-
-    private void clearTestsResults() {
-        Path path = Paths.get("allure-results");
-        try {
-            if (Files.exists(path)) {
-                Files.walk(path)
-                        .sorted(Comparator.reverseOrder())
-                        .map(Path::toFile)
-                        .forEach(File::delete);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
-
