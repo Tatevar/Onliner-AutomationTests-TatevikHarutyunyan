@@ -5,9 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import org.openqa.selenium.By;
-
 import javax.annotation.Nonnull;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class HomePageSelenide  {
