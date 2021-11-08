@@ -53,7 +53,7 @@ public class LoginUser extends BaseTestSelenium {
     }
 
     @Parameters({"errorText"})
-    @Test
+    @Test(priority = 4)
     public void LoginUserWithInvalidValue_test(String errorText) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -64,7 +64,8 @@ public class LoginUser extends BaseTestSelenium {
         loginPage.loginWithUserData(user)
                 .errorTextIsShown(errorText);
     }
-    @Test
+
+    @Test(priority = 3)
     public void LoginUserWithEmptySubmit_test() {
         UserBuilder user = UserBuilder
                 .builder()
@@ -74,5 +75,20 @@ public class LoginUser extends BaseTestSelenium {
         homePage.clickLoginbtn();
         loginPage.loginWithUserData(user)
                 .errorTextIsShown("Укажите ник или e-mail");
+    }
+
+    @Parameters({"email", "password"})
+    @Test(priority = 2)
+    public void LogOutUser_test(String email, String password) {
+        UserBuilder user = UserBuilder
+                .builder()
+                .email(email)
+                .password(password)
+                .build();
+        homePage.clickLoginbtn();
+        loginPage.loginWithUserData(user);
+        homePage.logOutUser()
+                .verifyHomePage();
+
     }
 }
