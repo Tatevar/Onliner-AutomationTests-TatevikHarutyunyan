@@ -1,14 +1,16 @@
 package PageObject;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
+import java.util.Arrays;
 
 public class HomePage extends BasePage {
     private By loginBtn = By.xpath(" //*[@class='auth-bar__item auth-bar__item--text']");
-    private By category = By.xpath("//span[contains(text(),'Красота и')]");
-    private By categoryList = By.cssSelector(".catalog-navigation-list__aside-item.catalog-navigation-list__aside-item_active .catalog-navigation-list__aside-title");
-    private By categoryItem = By.linkText("gascylinder");
+    private By logo = By.cssSelector(".onliner_logo");
+
+    private By getLink(HomePageLinksEnum homePageLinksEnum) {
+        return By.linkText(homePageLinksEnum.getLinkText());
+    }
 
     public HomePage openPage() {
         open();
@@ -16,6 +18,11 @@ public class HomePage extends BasePage {
     }
     public HomePage clickLoginbtn() {
         click(loginBtn);
+        return this;
+    }
+    public HomePage verifyHomePage() {
+        isDisplayed(logo);
+        Arrays.asList(HomePageLinksEnum.values()).forEach(homePageLinksEnum -> isDisplayed(getLink(homePageLinksEnum)));
         return this;
     }
 
