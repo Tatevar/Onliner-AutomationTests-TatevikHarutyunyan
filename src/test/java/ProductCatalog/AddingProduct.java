@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class AddingProduct extends BaseTestSelenide {
 
-    //@Test( priority = 3)
+    @Test( priority = 3)
     public void addAProductAndDelete_test(){
         get(HomePageSelenide.class)
                 .openProduct();
@@ -19,7 +19,7 @@ public class AddingProduct extends BaseTestSelenide {
         get(BasketPage.class)
                 .removeTheItem();
     }
-    //@Test(priority = 2)
+    @Test(priority = 2)
     public void compareProducts_test() {
         get(HomePageSelenide.class)
                 .openProduct();
