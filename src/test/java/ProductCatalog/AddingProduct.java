@@ -20,7 +20,7 @@ public class AddingProduct extends BaseTestSelenide {
                 .removeTheItem();
     }
     //@Test(priority = 2)
-    public void compareTheproducts_test() {
+    public void compareProducts_test() {
         get(HomePageSelenide.class)
                 .openProduct();
         get(CatalogPage.class)

@@ -44,7 +44,7 @@ public class CatalogPage extends BasePageSelenide {
     public CatalogPage EmptyComparedList() {
         removeComparedItem.click();
         emptyCompList.click();
-        compareProduct.shouldBe(text("0 товар в сравнении"));
+        compareProduct.shouldBe(text("0 товаров в сравнении"));
         return this;
     }
 }
