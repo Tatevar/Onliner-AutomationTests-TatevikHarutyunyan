@@ -1,13 +1,12 @@
 package Authorization;
 
 import Driver.BaseTestSelenium;
-import Driver.DriverCreation;
 import PageFactory.Registration;
 import PageObject.HomePage;
+import PageObject.HomeMenuItemEnum;
 import PageObject.LoginPage;
 import Patterns.UserBuilder;
 import Patterns.UserCreation;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 public class LoginUser extends BaseTestSelenium {
@@ -30,7 +29,7 @@ public class LoginUser extends BaseTestSelenium {
     }
 
     @Parameters({"email", "password"})
-    @Test
+    @Test(priority = 1)
     public void LoginUser_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -39,6 +38,18 @@ public class LoginUser extends BaseTestSelenium {
                 .build();
         homePage.clickLoginbtn();
         loginPage.loginWithUserData(user);
+        homePage.verifyHomePage();
+        HomeMenuItemEnum.ELECTRONICS.getMenuText();
+        HomeMenuItemEnum.APPLIANCES.getMenuText();
+        HomeMenuItemEnum.COMPUTERS.getMenuText();
+        HomeMenuItemEnum.CAR.getMenuText();
+        HomeMenuItemEnum.BEUTYANDSPORT.getMenuText();
+        HomeMenuItemEnum.CONSTRACTIONSANDREPAIR.getMenuText();
+        HomeMenuItemEnum.HOUSE.getMenuText();
+        HomeMenuItemEnum.FOOD.getMenuText();
+        HomeMenuItemEnum.MOMMIESANDBABIES.getMenuText();
+        HomeMenuItemEnum.WORKANDOFFICE.getMenuText();
+
     }
 
     @Parameters({"errorText"})

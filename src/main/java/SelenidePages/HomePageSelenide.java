@@ -16,7 +16,7 @@ public class HomePageSelenide extends BasePageSelenide {
     @Nonnull
     @CanIgnoreReturnValue
     public HomePageSelenide openProduct(){
-       category.click();
+        category.click();
         Selenide.actions().moveToElement(categoryList).click(categoryList).perform();
         categoryItem.scrollTo().click();
         return this;
