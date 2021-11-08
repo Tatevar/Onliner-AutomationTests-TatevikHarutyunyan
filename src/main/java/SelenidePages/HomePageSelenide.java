@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import javax.annotation.Nonnull;
 import static com.codeborne.selenide.Selenide.$;
 
-public class HomePageSelenide  {
+public class HomePageSelenide extends BasePageSelenide {
     SelenideElement  category =$(By.xpath("//div[@class='g-middle-i']//span[contains(text(),'Красота и')]"));
     SelenideElement  categoryList = $( By.xpath("//div[@class='catalog-navigation-list__aside-title'][contains(text(),'Туризм и')]"));
     SelenideElement categoryItem = $(By.xpath("//a[contains(@href,'gascylinder')]"));

@@ -3,13 +3,12 @@ package SelenidePages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
-
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.actions;
 
-public class BasketPage {
+public class BasketPage extends BasePageSelenide {
 
     @FindBy(css = ".button-style.button-style_auxiliary.button-style_small.cart-form__button.cart-form__button_remove")
     SelenideElement removeBtn;
@@ -19,6 +18,7 @@ public class BasketPage {
 
     SelenideElement closeBtn = $(byText("Закрыть"));
 
+
     public BasketPage removeTheItem(){
         actions().moveToElement(removeBtn).perform();
        $(".cart-form__offers-part.cart-form__offers-part_action").hover();
@@ -27,4 +27,5 @@ public class BasketPage {
         emptyBasketText.should(Condition.matchText("Ваша корзина пуста"));
         return this;
     }
+
 }
