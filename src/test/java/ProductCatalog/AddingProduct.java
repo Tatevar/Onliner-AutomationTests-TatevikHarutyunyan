@@ -12,6 +12,7 @@ public class AddingProduct extends BaseTestSelenide {
     @Test( priority = 3)
     public void addAProductAndDelete_test(){
         get(HomePageSelenide.class)
+
                 .openProduct();
         get(CatalogPage.class)
                 .clickItem()
@@ -26,7 +27,7 @@ public class AddingProduct extends BaseTestSelenide {
         get(CatalogPage.class)
                 .tickCheckbox();
     }
-    @Test(priority = 1)
+    @Test(priority = 5)
     public void emptyTheComparedList_test() {
         get(HomePageSelenide.class)
                 .openProduct();

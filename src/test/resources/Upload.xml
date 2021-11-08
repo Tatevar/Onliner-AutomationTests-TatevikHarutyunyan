@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Login">
+<suite name="upload">
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
-    <test name="Registration" >
-        <classes>
-            <class name="Authorization.RegistrationUser"></class>
-        </classes>
-    </test>
-    <test name="Login">
+    <test name="uploading file">
         <parameter name="email" value="tatevar93@gmail.com"></parameter>
         <parameter name="password" value="onlinertest"></parameter>
-        <parameter name="errorText" value="Неверный логин или пароль"></parameter>
         <classes>
-            <class name="Authorization.LoginUser"></class>
+            <class name="Uploader.Upload"></class>
         </classes>
     </test>
-
 </suite>

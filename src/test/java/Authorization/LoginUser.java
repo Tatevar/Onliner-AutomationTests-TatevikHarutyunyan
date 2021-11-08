@@ -87,8 +87,23 @@ public class LoginUser extends BaseTestSelenium {
                 .build();
         homePage.clickLoginbtn();
         loginPage.loginWithUserData(user);
-        homePage.logOutUser()
+        homePage
+                .logOutUser()
                 .verifyHomePage();
+    }
+    @Parameters({"email", "password"})
+    @Test(priority = 5)
+    public void openDialogWindow_test(String email, String password) {
+        UserBuilder user = UserBuilder
+                .builder()
+                .email(email)
+                .password(password)
+                .build();
+        homePage.clickLoginbtn();
+        loginPage.loginWithUserData(user);
+        homePage
+                .verifyHomePage()
+                .clickNotificationIocn("Отметить все как прочитанные");
 
     }
 }
