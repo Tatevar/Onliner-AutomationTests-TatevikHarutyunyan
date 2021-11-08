@@ -12,6 +12,10 @@ public class HomePage extends BasePage {
         return By.linkText(homePageLinksEnum.getLinkText());
     }
 
+    private By HomePageLogoDisplayed = By.cssSelector(".onliner_logo");
+
+
+
     public HomePage openPage() {
         open();
         return this;
@@ -20,6 +24,7 @@ public class HomePage extends BasePage {
         click(loginBtn);
         return this;
     }
+
     public HomePage verifyHomePage() {
         isDisplayed(logo);
         Arrays.asList(HomePageLinksEnum.values()).forEach(homePageLinksEnum -> isDisplayed(getLink(homePageLinksEnum)));

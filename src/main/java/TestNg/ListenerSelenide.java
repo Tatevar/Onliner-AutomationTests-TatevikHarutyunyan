@@ -1,6 +1,5 @@
 package TestNg;
 
-import Driver.DriverCreation;
 import Driver.SelenideConfigurations;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Attachment;
@@ -11,16 +10,8 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import properties.PropertyReader;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Comparator;
-
-import static Driver.DriverCreation.getDriver;
-
 public class ListenerSelenide implements ITestListener {
+
     @Override
     public void onTestFailure(ITestResult result) {
         byte[] file = ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
@@ -39,3 +30,4 @@ public class ListenerSelenide implements ITestListener {
         return s;
     }
 }
+

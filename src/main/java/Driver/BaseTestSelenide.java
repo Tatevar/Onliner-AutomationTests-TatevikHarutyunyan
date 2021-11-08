@@ -13,7 +13,6 @@ import static com.codeborne.selenide.WebDriverRunner.driver;
 @Listeners(ListenerSelenide.class)
 public class BaseTestSelenide {
 
-
     public <Type> Type get(Class<Type> pageObjectClassClass) {
         return driver().hasWebDriverStarted() ? page(pageObjectClassClass) : open(PropertyReader.getProperties().getProperty("url"), pageObjectClassClass);
     }
