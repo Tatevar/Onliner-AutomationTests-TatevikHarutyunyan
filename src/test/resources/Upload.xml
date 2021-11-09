@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="upload">
     <parameter name="env" value="onliner"></parameter>
-    <parameter name="browser" value="Chrome"></parameter>
+    <parameter name="browser" value="Mozilla"></parameter>
     <test name="uploading file">
         <parameter name="email" value="tatevar93@gmail.com"></parameter>
         <parameter name="password" value="onlinertest"></parameter>

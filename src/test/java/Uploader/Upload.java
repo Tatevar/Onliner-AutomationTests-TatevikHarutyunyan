@@ -43,6 +43,7 @@ public class Upload extends BaseTestSelenium {
         homePage.clickLoginbtn();
         loginPage.loginWithUserData(user);
         homePage.openAccountPage();
-        accountPage.dragDropUpload("img.png");
+        accountPage.dragDropUpload("img.png")
+                .pause(10);
     }
 }

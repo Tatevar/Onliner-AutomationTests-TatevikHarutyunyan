@@ -11,14 +11,14 @@ public class AccountPage extends BasePage {
     private By uploadBtn = By.cssSelector(".profile-header__download");
     private By hoverTheImage = By.cssSelector(".profile-header__image.profile-header__image_person.profile-header__image_person_1");
     private By uploadFile = By.cssSelector(".profile-form__control.profile-form__control_condensed-default .button-style.button-style_appendant.button-style_middle.profile-form__button.profile-form__button_narrow.profile-form__button_width_full");
-
+    private By saveBtn = By.xpath("//a[contains(@class,'button-style button-style_primary button-style_middle')]");
 
     public AccountPage dragDropUpload(String imgName){
         actions.contextClick(driver.findElement(hoverTheImage)).perform();
         click(uploadBtn);
         click(uploadFile);
-        pause(1);
-        StringSelection stringSelection = new StringSelection(userDir + "\\files\\" + imgName);
+        pause(5);
+        StringSelection stringSelection = new StringSelection("C:\\Users\\Tata\\Documents\\AutomationDiploma\\Onliner-AutomationTests-TatevikHarutyunyan\\src\\main\\java\\files\\" + imgName);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
         try {
@@ -32,6 +32,8 @@ public class AccountPage extends BasePage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        pause(3);
+        click(saveBtn);
         return this;
     }
 }
