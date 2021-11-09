@@ -9,7 +9,7 @@ import org.testng.annotations.Listeners;
 import static Driver.DriverCreation.getDriver;
 
 @Listeners({ListenerSelenium.class})
-public class BaseTest {
+public class BaseTestSelenium {
     public static WebDriver driver;
 
     @BeforeTest

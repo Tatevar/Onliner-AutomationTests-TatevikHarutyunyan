@@ -1,16 +1,14 @@
-package LoginTests;
+package Authorization;
+import Driver.BaseTestSelenium;
 
-import Driver.BaseTest;
-import PageFactory.Registration;
 import PageObject.HomePage;
 import PageObject.LoginPage;
-import Patterns.UserBuilder;
 import Patterns.UserCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class RegistrationUser extends BaseTest {
+public class RegistrationUser extends BaseTestSelenium {
     HomePage homePage;
     LoginPage loginPage;
     PageFactory.Registration registration;
@@ -30,7 +28,7 @@ public class RegistrationUser extends BaseTest {
     }
 
 //This case found a bug , User can create different accounts with the same email address
-    @Test
+   // @Test(invocationCount = 2)
     public void createUser_test() {
         homePage.clickLoginbtn();
         loginPage.clickRegbtn();
