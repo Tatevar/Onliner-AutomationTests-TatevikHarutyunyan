@@ -33,8 +33,8 @@ public class Upload extends BaseTestSelenium {
     }
 
     @Parameters({"email", "password"})
-    @Test(priority = 1)
-    public void LoginUser_test(String email, String password) {
+    @Test(priority = 2)
+    public void uploadPhotoToAccountAvatar_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
                 .email(email)
@@ -44,6 +44,26 @@ public class Upload extends BaseTestSelenium {
         loginPage.loginWithUserData(user);
         homePage.openAccountPage();
         accountPage.dragDropUpload("img.png")
-                .pause(10);
+                   .deletePhoto()
+                   .verifyAccountPage()
+                   .logOutUser();
+    }
+
+    //here bug , user can delete a photo, of there is no any photo uploaded
+    @Parameters({"email", "password"})
+    @Test(priority = 1)
+    public void deletePhoto_test(String email, String password) {
+        UserBuilder user = UserBuilder
+                .builder()
+                .email(email)
+                .password(password)
+                .build();
+        homePage.clickLoginbtn();
+        loginPage.loginWithUserData(user);
+        homePage.openAccountPage();
+        accountPage.deletePhoto()
+                .verifyAccountPage()
+                .logOutUser();
+
     }
 }
