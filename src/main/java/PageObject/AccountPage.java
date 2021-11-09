@@ -1,5 +1,6 @@
 package PageObject;
 
+import io.cucumber.java.bs.A;
 import org.openqa.selenium.By;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -12,6 +13,9 @@ public class AccountPage extends BasePage {
     private By hoverTheImage = By.cssSelector(".profile-header__image.profile-header__image_person.profile-header__image_person_1");
     private By uploadFile = By.cssSelector(".profile-form__control.profile-form__control_condensed-default .button-style.button-style_appendant.button-style_middle.profile-form__button.profile-form__button_narrow.profile-form__button_width_full");
     private By saveBtn = By.xpath("//a[contains(@class,'button-style button-style_primary button-style_middle')]");
+    private By deleteBtn = By.xpath("//button[contains(@class,'button-style button-style_auxiliary button-style')]");
+    private By accountHeader = By.cssSelector(".profile-header__details-item");
+
 
     public AccountPage dragDropUpload(String imgName){
         actions.contextClick(driver.findElement(hoverTheImage)).perform();
@@ -36,4 +40,11 @@ public class AccountPage extends BasePage {
         click(saveBtn);
         return this;
     }
+    public AccountPage deletePhoto(){
+        actions.contextClick(driver.findElement(hoverTheImage)).perform();
+        click(uploadBtn);
+        click(deleteBtn);
+        return this;
+    }
+
 }
