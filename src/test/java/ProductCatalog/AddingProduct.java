@@ -13,7 +13,7 @@ public class AddingProduct extends BaseTestSelenide {
     public void addAProductAndDelete_test(){
         get(HomePageSelenide.class)
 
-                .openProduct();
+                .openBeautyAndSportProduct();
         get(CatalogPage.class)
                 .clickItem()
                 .addItemToBasket();
@@ -23,14 +23,14 @@ public class AddingProduct extends BaseTestSelenide {
     @Test(priority = 2)
     public void compareProducts_test() {
         get(HomePageSelenide.class)
-                .openProduct();
+                .openBeautyAndSportProduct();
         get(CatalogPage.class)
                 .tickCheckbox();
     }
     @Test(priority = 5)
     public void emptyTheComparedList_test() {
         get(HomePageSelenide.class)
-                .openProduct();
+                .openBeautyAndSportProduct();
         get(CatalogPage.class)
                 .tickCheckbox()
                 .EmptyComparedList();
