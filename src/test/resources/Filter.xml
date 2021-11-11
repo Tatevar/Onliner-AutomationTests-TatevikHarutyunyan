@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Filter the Products">
+    <parameter name="env" value="onliner"></parameter>
+    <parameter name="browser" value="Chrome"></parameter>
+    <listeners>
+        <listener class-name="TestNg.ListenerSelenide"/>
+    </listeners>
+    <test name="Filtering">
+        <classes>
+            <class name="Bdd_tests.Running"></class>
+        </classes>
+    </test>
+</suite>

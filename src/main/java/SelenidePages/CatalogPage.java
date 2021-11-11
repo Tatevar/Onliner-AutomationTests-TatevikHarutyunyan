@@ -1,7 +1,10 @@
 package SelenidePages;
 
+import PageObject.LoginPage;
+import Patterns.UserBuilder;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.*;
@@ -16,10 +19,10 @@ public class CatalogPage extends BasePageSelenide {
     SelenideElement compareProduct = $(By.cssSelector(".compare-button__sub.compare-button__sub_main"));
     SelenideElement removeComparedItem = $(byXpath("//a[@title='Очистить список сравнения']"));
     SelenideElement emptyCompList = $(byText("Очистить список сравнения"));
-
+    SelenideElement compareCheckbox = $(byXpath("//span[@class='catalog-masthead-controls__input i-checkbox i-checkbox_yellow']//span[@class='i-checkbox__faux']"));
+    SelenideElement favIcon = $(byXpath("//span[@class='catalog-masthead-controls__input i-checkbox i-checkbox_star']//span[@class='i-checkbox__faux']"));
     @FindBy(css = ".auth-bar__item.auth-bar__item--cart")
     SelenideElement basketBtn;
-
 
     public CatalogPage clickItem() {
         $(byText("Туристическая плита Tourist Krab [TM-300]")).click();
@@ -45,6 +48,16 @@ public class CatalogPage extends BasePageSelenide {
         removeComparedItem.click();
         emptyCompList.click();
         compareProduct.shouldBe(text("0 товаров в сравнении"));
+        return this;
+    }
+    public CatalogPage tickCheckboxes() {
+        compareCheckbox.click();
+        favIcon.click();
+        return this;
+    }
+    public CatalogPage checkTheValues() {
+        compareCheckbox.shouldBe(text("Добавлен к сравнению"));
+        favIcon.shouldBe(text("В закладках"));
         return this;
     }
 }

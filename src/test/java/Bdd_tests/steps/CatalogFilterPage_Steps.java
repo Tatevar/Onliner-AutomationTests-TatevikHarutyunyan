@@ -1,7 +1,7 @@
 package Bdd_tests.steps;
 
 import Driver.BaseTestSelenide;
-import SelenidePages.CatalogFilter.*;
+import SelenidePages.ElectronicFilter;
 import SelenidePages.HomePageSelenide;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,21 +9,21 @@ import io.cucumber.java.en.When;
 
 public class CatalogFilterPage_Steps extends BaseTestSelenide {
     @Given("The Electronics category page is opened and the category item is chosen")
-    public void openPage(){
+    public void chooseProduct_step(){
         get(HomePageSelenide.class)
                 .openElectronicsProduct();
 
     }
-    @When("Filter the products by Belt,Manufacturer,Price")
-    public void filterTheProductPage() {
-        get(ElectronicFilter.class);
+    @When("User filter the products by Belt,Manufacturer,Price")
+    public void filterTheProductPage_step() {
+        get(ElectronicFilter.class)
+                .filterPage();
 
     }
-    @Then("The Hotel is displayed with the Rating Exceptional")
-    public void hotelResults(){
+    @Then("The filtered items are displayed on the top of the page")
+    public void filterResults_step(){
         get(ElectronicFilter.class)
-                ;
-
+                .checkTheFilterIsDisplayed();
 
     }
 }

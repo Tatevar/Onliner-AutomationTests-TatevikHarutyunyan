@@ -27,7 +27,7 @@ public class HomePageSelenide extends BasePageSelenide {
     public HomePageSelenide openElectronicsProduct(){
         categoryElectronics.click();
         Selenide.actions().moveToElement(electronicslist).click(electronicslist).perform();
-        electronicsItem.scrollTo().click();
+        electronicsItem.click();
         return this;
     }
 }

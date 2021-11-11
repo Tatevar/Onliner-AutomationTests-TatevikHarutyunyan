@@ -6,7 +6,6 @@ import PageObject.LoginPage;
 import Patterns.UserCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class RegistrationUser extends BaseTestSelenium {
     HomePage homePage;
