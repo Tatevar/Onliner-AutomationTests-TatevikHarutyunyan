@@ -1,11 +1,10 @@
 package SelenidePages.CatalogFilter;
-
+import SelenidePages.BasePageSelenide;
 import com.codeborne.selenide.SelenideElement;
-
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class ElectronicFilter {
+public class ElectronicFilter extends BasePageSelenide {
     SelenideElement filterDisp2 = $(byXpath("//span[@class='schema-tags__text' and contains(text(),'ремешок')]"));
     SelenideElement filterType = $(byXpath("//span[@class='schema-filter__checkbox-text' and contains(text(),'Apple')]"));
     SelenideElement filterDisp = $(byXpath("//span[@class='schema-tags__text' and contains(text(),'Apple')]"));

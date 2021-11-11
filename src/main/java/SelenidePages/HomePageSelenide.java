@@ -1,7 +1,4 @@
 package SelenidePages;
-
-import PageObject.HomePage;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
