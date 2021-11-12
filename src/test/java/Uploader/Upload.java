@@ -7,10 +7,9 @@ import PageObject.HomePage;
 import PageObject.LoginPage;
 import Patterns.UserBuilder;
 import Patterns.UserCreation;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class Upload extends BaseTestSelenium {
     HomePage homePage;
@@ -19,7 +18,7 @@ public class Upload extends BaseTestSelenium {
     UserCreation userCreation;
     AccountPage accountPage;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void initialization() {
         homePage = new HomePage();
         loginPage = new LoginPage();
@@ -27,13 +26,13 @@ public class Upload extends BaseTestSelenium {
         userCreation = new UserCreation();
         accountPage = new AccountPage();
     }
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition() {
         homePage.openPage();
     }
 
     @Parameters({"email", "password"})
-    @Test(priority = 2)
+    @Test(groups = {"smokeTest"},priority = 1)
     public void uploadPhotoToAccountAvatar_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -51,7 +50,7 @@ public class Upload extends BaseTestSelenium {
 
     //here bug , user can delete a photo, of there is no any photo uploaded
     @Parameters({"email", "password"})
-    @Test(priority = 1)
+    @Test(groups = {"regressionTest"},dependsOnGroups = {"smokeTest"},priority = 1)
     public void deletePhoto_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -65,5 +64,10 @@ public class Upload extends BaseTestSelenium {
                 .verifyAccountPage()
                 .logOutUser();
 
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void post() {
+        closeWebDriver();
     }
 }

@@ -20,6 +20,7 @@ public class Basket extends BasePageSelenide {
 
     public Basket removeTheItem(){
         actions().moveToElement(removeBtn).perform();
+        pause(2);
        $(".cart-form__offers-part.cart-form__offers-part_action").hover();
         removeBtn.click();
         closeBtn.click();

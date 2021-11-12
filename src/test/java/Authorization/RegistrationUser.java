@@ -6,6 +6,7 @@ import PageObject.LoginPage;
 import Patterns.UserCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class RegistrationUser extends BaseTestSelenium {
     HomePage homePage;
@@ -13,7 +14,7 @@ public class RegistrationUser extends BaseTestSelenium {
     PageFactory.Registration registration;
     UserCreation userCreation;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void initialization() {
         homePage = new HomePage();
         loginPage = new LoginPage();
@@ -21,13 +22,13 @@ public class RegistrationUser extends BaseTestSelenium {
         userCreation = new UserCreation();
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition() {
         homePage.openPage();
     }
 
 //This case found a bug , User can create different accounts with the same email address
-   // @Test(invocationCount = 2)
+   @Test(groups = {"smokeTest"},priority = 1,invocationCount = 2)
     public void createUser_test() {
         homePage.clickLoginbtn();
         loginPage.clickRegbtn();

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Login and Registration">
+    <groups>
+        <run>
+            <include name="smokeTest"/>
+            <include name="regressionTest"/>
+        </run>
+    </groups>
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
     <test name="Registration" >
@@ -9,7 +15,7 @@
         </classes>
     </test>
     <test name="Login">
-        <parameter name="email" value="tatevagmail.com"></parameter>
+        <parameter name="email" value="tatevar93@gmail.com"></parameter>
         <parameter name="password" value="onlinertest"></parameter>
         <parameter name="errorText" value="Неверный логин или пароль"></parameter>
         <classes>
