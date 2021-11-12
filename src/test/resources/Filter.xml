@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="product" >
-    <groups>
-        <run>
-            <include name="smokeTest"/>
-            <include name="regressionTest"/>
-        </run>
-    </groups>
+<suite name="Filter the Products">
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
-    <test name="Add product">
+    <listeners>
+        <listener class-name="TestNg.ListenerSelenide"/>
+    </listeners>
+    <test name="Filtering">
         <classes>
-            <class name="ProductCatalog.AddingProduct"></class>
+            <class name="Bdd_tests.Running"></class>
         </classes>
     </test>
 </suite>

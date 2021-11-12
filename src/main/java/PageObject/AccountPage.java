@@ -16,13 +16,14 @@ public class AccountPage extends BasePage {
     private By accountHeader = By.cssSelector(".profile-header__details-item");
     private By accountDropdown = By.cssSelector(".b-top-profile__item.b-top-profile__item_arrow .b-top-profile__preview.js-toggle-bar");
     private By logoutBtn = By.xpath("//div[@class='b-top-profile__logout']//a[@class='b-top-profile__link b-top-profile__link_secondary']");
+    private String userDir = System.getProperty("user.dir");
 
     public AccountPage dragDropUpload(String imgName){
         actions.contextClick(driver.findElement(hoverTheImage)).perform();
         click(uploadBtn);
         click(uploadFile);
         pause(5);
-        StringSelection stringSelection = new StringSelection("C:\\Users\\Tata\\Documents\\AutomationDiploma\\Onliner-AutomationTests-TatevikHarutyunyan\\src\\main\\java\\files\\" + imgName);
+        StringSelection stringSelection = new StringSelection(userDir + "\\files\\" + imgName);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
         try {

@@ -1,38 +1,45 @@
 package ProductCatalog;
 
 import Driver.BaseTestSelenide;
-import SelenidePages.BasketPage;
-import SelenidePages.CatalogPage;
-import SelenidePages.HomePageSelenide;
+import SelenidePages.Basket;
+import SelenidePages.Catalog;
+import SelenidePages.Home;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class AddingProduct extends BaseTestSelenide {
 
-    @Test( priority = 3)
+    @Test(groups = {"smokeTest"},priority = 1)
     public void addAProductAndDelete_test(){
-        get(HomePageSelenide.class)
-
-                .openProduct();
-        get(CatalogPage.class)
+        get(Home.class)
+                .openBeautyAndSportProduct();
+        get(Catalog.class)
                 .clickItem()
                 .addItemToBasket();
-        get(BasketPage.class)
+        get(Basket.class)
                 .removeTheItem();
     }
-    @Test(priority = 2)
+
+    @Test(groups = {"regressionTest"},priority = 1)
     public void compareProducts_test() {
-        get(HomePageSelenide.class)
-                .openProduct();
-        get(CatalogPage.class)
+        get(Home.class)
+                .openBeautyAndSportProduct();
+        get(Catalog.class)
                 .tickCheckbox();
     }
-    @Test(priority = 5)
+    @Test(groups = {"regressionTest"},priority = 2)
     public void emptyTheComparedList_test() {
-        get(HomePageSelenide.class)
-                .openProduct();
-        get(CatalogPage.class)
+        get(Home.class)
+                .openBeautyAndSportProduct();
+        get(Catalog.class)
                 .tickCheckbox()
                 .EmptyComparedList();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void post() {
+        closeWebDriver();
     }
 }
