@@ -2,7 +2,7 @@ package Bdd_tests.steps;
 
 import Driver.BaseTestSelenide;
 import SelenidePages.ElectronicFilter;
-import SelenidePages.HomePageSelenide;
+import SelenidePages.Home;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +10,7 @@ import io.cucumber.java.en.When;
 public class CatalogFilterPage_Steps extends BaseTestSelenide {
     @Given("The Electronics category page is opened and the category item is chosen")
     public void chooseProduct_step(){
-        get(HomePageSelenide.class)
+        get(Home.class)
                 .openElectronicsProduct();
 
     }

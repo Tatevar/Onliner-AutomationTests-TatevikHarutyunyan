@@ -2,9 +2,9 @@ package Bdd_tests.steps;
 
 import Driver.BaseTestSelenide;
 import Patterns.UserBuilder;
-import SelenidePages.CatalogPage;
+import SelenidePages.Catalog;
 import SelenidePages.ElectronicFilter;
-import SelenidePages.LoginPageSelenide;
+import SelenidePages.UserData;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,7 +19,7 @@ public class ProductPage_steps extends BaseTestSelenide {
     }
     @When("User ticking checkboxes")
     public void addProductToFavAndCompare_step() {
-        get(CatalogPage.class)
+        get(Catalog.class)
                 .tickCheckboxes();
 
     }
@@ -30,9 +30,9 @@ public class ProductPage_steps extends BaseTestSelenide {
                 .email("tatevar93@gmail.com")
                 .password("onlinertest")
                 .build();
-        get(LoginPageSelenide.class)
+        get(UserData.class)
                 .loginWithUserData(user);
-        get(CatalogPage.class)
+        get(Catalog.class)
                 .checkTheValues();
     }
 }

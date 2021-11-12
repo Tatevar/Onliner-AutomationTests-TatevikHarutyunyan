@@ -7,14 +7,14 @@ import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPageSelenide extends BasePageSelenide {
+public class UserData extends BasePageSelenide {
     @FindBy(xpath = "//input[(@placeholder='Ник или e-mail')]")
     SelenideElement email;
     @FindBy(xpath = "//*[@type='password']")
     SelenideElement password;
     SelenideElement loginBtn = $(By.xpath("//button[contains(@class,'auth-button auth-button_primary')]"));
 
-    public LoginPageSelenide loginWithUserData(UserBuilder user) {
+    public UserData loginWithUserData(UserBuilder user) {
         this.email.sendKeys(user.email);
         this.password.sendKeys(user.password);
         this.loginBtn.click();

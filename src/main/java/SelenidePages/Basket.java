@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.actions;
 
-public class BasketPage extends BasePageSelenide {
+public class Basket extends BasePageSelenide {
 
     @FindBy(css = ".button-style.button-style_auxiliary.button-style_small.cart-form__button.cart-form__button_remove")
     SelenideElement removeBtn;
@@ -18,7 +18,7 @@ public class BasketPage extends BasePageSelenide {
     SelenideElement closeBtn = $(byText("Закрыть"));
 
 
-    public BasketPage removeTheItem(){
+    public Basket removeTheItem(){
         actions().moveToElement(removeBtn).perform();
        $(".cart-form__offers-part.cart-form__offers-part_action").hover();
         removeBtn.click();

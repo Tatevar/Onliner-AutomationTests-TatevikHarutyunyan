@@ -29,7 +29,7 @@ public class LoginUser extends BaseTestSelenium {
     }
 
     @Parameters({"email", "password"})
-    @Test(priority = 1)
+    @Test(groups = {"smokeTest"}, priority=1)
     public void LoginUser_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -53,7 +53,7 @@ public class LoginUser extends BaseTestSelenium {
     }
 
     @Parameters({"errorText"})
-    @Test(priority = 4)
+    @Test(groups = {"regressionTest"}, dependsOnGroups = {"smokeTest"}, priority=4)
     public void LoginUserWithInvalidValue_test(String errorText) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -65,7 +65,7 @@ public class LoginUser extends BaseTestSelenium {
                 .errorTextIsShown(errorText);
     }
 
-    @Test(priority = 3)
+    @Test(groups = {"regressionTest"}, dependsOnGroups = {"smokeTest"}, priority=3)
     public void LoginUserWithEmptySubmit_test() {
         UserBuilder user = UserBuilder
                 .builder()
@@ -78,7 +78,7 @@ public class LoginUser extends BaseTestSelenium {
     }
 
     @Parameters({"email", "password"})
-    @Test(priority = 2)
+    @Test(groups = {"smokeTest"}, priority=1)
     public void LogOutUser_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -92,7 +92,7 @@ public class LoginUser extends BaseTestSelenium {
                 .verifyHomePage();
     }
     @Parameters({"email", "password"})
-    @Test(priority = 5)
+    @Test(groups = {"regressionTest"}, dependsOnGroups = {"smokeTest"}, priority=5)
     public void openDialogWindow_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
