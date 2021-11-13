@@ -5,8 +5,8 @@ import PageFactory.Registration;
 import PageObject.AccountPage;
 import PageObject.HomePage;
 import PageObject.LoginPage;
-import Patterns.UserBuilder;
-import Patterns.UserCreation;
+import Users.UserBuilder;
+import Users.UserCreation;
 import org.testng.annotations.*;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;

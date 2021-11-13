@@ -5,8 +5,8 @@ import PageFactory.Registration;
 import PageObject.HomePage;
 import PageObject.HomeMenuItemEnum;
 import PageObject.LoginPage;
-import Patterns.UserBuilder;
-import Patterns.UserCreation;
+import Users.UserBuilder;
+import Users.UserCreation;
 import org.testng.annotations.*;
 
 public class LoginUser extends BaseTestSelenium {

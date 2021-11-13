@@ -14,7 +14,7 @@ public class AddingProduct extends BaseTestSelenide {
     @Test(groups = {"smokeTest"},priority = 1)
     public void addAProductAndDelete_test(){
         get(Home.class)
-                .openBeautyAndSportProduct();
+                .addBeautyAndSportProduct();
         get(Catalog.class)
                 .clickItem()
                 .addItemToBasket();
@@ -25,14 +25,14 @@ public class AddingProduct extends BaseTestSelenide {
     @Test(groups = {"regressionTest"},priority = 1)
     public void compareProducts_test() {
         get(Home.class)
-                .openBeautyAndSportProduct();
+                .addBeautyAndSportProduct();
         get(Catalog.class)
                 .tickCheckbox();
     }
     @Test(groups = {"regressionTest"},priority = 2)
     public void emptyTheComparedList_test() {
         get(Home.class)
-                .openBeautyAndSportProduct();
+                .addBeautyAndSportProduct();
         get(Catalog.class)
                 .tickCheckbox()
                 .EmptyComparedList();

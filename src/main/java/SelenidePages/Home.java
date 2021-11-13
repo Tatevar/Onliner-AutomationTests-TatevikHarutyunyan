@@ -13,10 +13,11 @@ public class Home extends BasePageSelenide {
     SelenideElement  categoryElectronics =$(By.xpath("//div[@class='g-middle-i']//span[contains(text(),'Электроника')]"));
     SelenideElement  electronicslist =$(By.xpath("//div[@class='catalog-navigation-list__aside-title'][contains(text(),'Гаджеты')]"));
     SelenideElement  electronicsItem =$(By.xpath("//span[contains(@class,'catalog-navigation-list__dropdown-title') and contains(text(),'Сменные ремешки и')]"));
+    SelenideElement logoutBtn = $(By.xpath("//div[@class='b-top-profile__logout']//a[@class='b-top-profile__link b-top-profile__link_secondary']"));
 
     @Nonnull
     @CanIgnoreReturnValue
-    public Home openBeautyAndSportProduct(){
+    public Home addBeautyAndSportProduct(){
         categoryBeauty.click();
         Selenide.actions().moveToElement(categoryList).click(categoryList).perform();
         categoryItem.scrollTo().click();
@@ -24,10 +25,14 @@ public class Home extends BasePageSelenide {
     }
     @Nonnull
     @CanIgnoreReturnValue
-    public Home openElectronicsProduct(){
+    public Home addElectronicsProduct(){
         categoryElectronics.click();
         Selenide.actions().moveToElement(electronicslist).click(electronicslist).perform();
         electronicsItem.click();
+        return this;
+    }
+    public Home clickLoginbtn() {
+        logoutBtn.click();
         return this;
     }
 }

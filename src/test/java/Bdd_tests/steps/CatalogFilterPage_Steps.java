@@ -11,7 +11,7 @@ public class CatalogFilterPage_Steps extends BaseTestSelenide {
     @Given("The Electronics category page is opened and the category item is chosen")
     public void chooseProduct_step(){
         get(Home.class)
-                .openElectronicsProduct();
+                .addElectronicsProduct();
 
     }
     @When("User filter the products by Belt,Manufacturer,Price")

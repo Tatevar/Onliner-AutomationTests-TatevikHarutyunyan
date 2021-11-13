@@ -3,7 +3,7 @@ import Driver.BaseTestSelenium;
 
 import PageObject.HomePage;
 import PageObject.LoginPage;
-import Patterns.UserCreation;
+import Users.UserCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

@@ -1,6 +1,6 @@
 package SelenidePages;
 
-import Patterns.UserBuilder;
+import Users.UserBuilder;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
