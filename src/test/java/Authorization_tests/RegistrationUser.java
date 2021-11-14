@@ -1,4 +1,4 @@
-package Authorization;
+package Authorization_tests;
 import Driver.BaseTestSelenium;
 
 import PageObject.HomePage;

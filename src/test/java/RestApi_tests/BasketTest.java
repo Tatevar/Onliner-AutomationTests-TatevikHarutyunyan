@@ -1,7 +1,6 @@
-package RestApi;
+package RestApi_tests;
 import Driver.BaseTestSelenide;
 import SelenidePages.Basket;
-import SelenidePages.Catalog;
 import SelenidePages.Home;
 import SelenidePages.UserData;
 import UserRestApi.DeleteProduct.Position;
@@ -50,7 +49,7 @@ public class BasketTest extends BaseTestSelenide{
         setPositions(list);
     }};
 
-    @BeforeTest
+    @BeforeTest(alwaysRun = true)
     public void preconditions() throws JsonProcessingException {
         baseURI = "https://www.onliner.by";
         String response = given().when().body(mapper.writeValueAsString(login))
@@ -60,7 +59,7 @@ public class BasketTest extends BaseTestSelenide{
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         token = jsonObject.get("access_token").getAsString();
     }
-    @Test()
+    @Test(groups = {"smokeTest"},priority = 1)
     public void AddProductToBasket_test() throws JsonProcessingException, InterruptedException {
         baseURI = "https://cart.onliner.by/";
         Response response = given().when().body(mapper.writeValueAsString(newProduct))
@@ -81,7 +80,28 @@ public class BasketTest extends BaseTestSelenide{
         get(Basket.class)
                 .checkProductsDisplayed();
     }
-    @Test(priority = 2)
+    @Test(groups = {"regressionTest"},dependsOnGroups = {"smokeTest"},priority = 1)
+    public void getProductFromBasket_test() throws JsonProcessingException, InterruptedException {
+        baseURI = "https://cart.onliner.by/";
+        Response response = given().when().body(mapper.writeValueAsString(newProduct))
+                .header("Authorization", "Bearer " + token)
+                .and().header("Content-Type", "application/json")
+                .when().get("sdapi/cart.api/positions");
+        Assert.assertEquals(response.statusCode(), 200);
+        get(Home.class).clickLoginbtn();
+        UserBuilder user = UserBuilder
+                .builder()
+                .email("qa07qa@mail.ru")
+                .password("qa07qa07")
+                .build();
+        get(UserData.class)
+                .loginWithUserData(user);
+        get(Home.class)
+                .clickBasketBtn();
+        get(Basket.class)
+                .checkProductsDisplayed();
+    }
+    @Test(groups = {"regressionTest"},dependsOnGroups = {"smokeTest"},priority = 2)
     public void deleteAProduct_test() throws JsonProcessingException {
         baseURI = "https://cart.onliner.by";
         String endpoint = "sdapi/cart.api/positions";
@@ -103,7 +123,7 @@ public class BasketTest extends BaseTestSelenide{
                 .checkProductsAreNotDisplayed();
 
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void post() {
         closeWebDriver();
     }

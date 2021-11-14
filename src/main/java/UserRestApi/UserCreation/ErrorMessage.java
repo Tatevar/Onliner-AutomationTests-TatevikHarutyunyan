@@ -1,6 +1,6 @@
 package UserRestApi.UserCreation;
 
-    public class RootER {
+    public class ErrorMessage {
         public String message;
         public InvalidUser errors;
     }

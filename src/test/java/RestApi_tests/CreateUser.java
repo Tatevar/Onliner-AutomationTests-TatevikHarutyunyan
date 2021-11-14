@@ -1,8 +1,8 @@
-package RestApi;
+package RestApi_tests;
 
 
 import UserRestApi.UserCreation.InvalidUser;
-import UserRestApi.UserCreation.RootER;
+import UserRestApi.UserCreation.ErrorMessage;
 import Users.UserCreation;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +20,7 @@ import static io.restassured.RestAssured.given;
 
 
 public class CreateUser {
-    RootER root = new RootER();
+    ErrorMessage root = new ErrorMessage();
     Gson gson = new Gson();
     ObjectMapper mapper = new ObjectMapper();
     UserCreation userCreation = new UserCreation() {{

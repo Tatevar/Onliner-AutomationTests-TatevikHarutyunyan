@@ -11,7 +11,7 @@
     <parameter name="browser" value="Chrome"></parameter>
     <test name="Registration" >
         <classes>
-            <class name="Authorization.RegistrationUser"></class>
+            <class name="Authorization_tests.RegistrationUser"></class>
         </classes>
     </test>
     <test name="Login">
@@ -19,7 +19,7 @@
         <parameter name="password" value="onlinertest"></parameter>
         <parameter name="errorText" value="Неверный логин или пароль"></parameter>
         <classes>
-            <class name="Authorization.LoginUser"></class>
+            <class name="Authorization_tests.LoginUser"></class>
         </classes>
     </test>
 

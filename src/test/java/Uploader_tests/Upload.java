@@ -1,4 +1,4 @@
-package Uploader;
+package Uploader_tests;
 
 import Driver.BaseTestSelenium;
 import PageFactory.Registration;

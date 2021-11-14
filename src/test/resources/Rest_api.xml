@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Rest Api tests" >
+    <groups>
+        <run>
+            <include name="smokeTest"/>
+            <include name="regressionTest"/>
+        </run>
+    </groups>
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
-    <test name="tests" enabled="false">
+    <test name="tests" >
         <classes>
-            <class name="RestApi.BasketTest"></class>
+            <class name="RestApi_tests.BasketTest"></class>
         </classes>
     </test>
-    <test name="test">
+    <test name="test" enabled="false">
         <classes>
-            <class name="RestApi.CreateUser"></class>
+            <class name="RestApi_tests.CreateUser"></class>
         </classes>
     </test>
 </suite>

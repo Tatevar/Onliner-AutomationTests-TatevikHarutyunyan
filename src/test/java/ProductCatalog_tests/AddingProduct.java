@@ -1,4 +1,4 @@
-package ProductCatalog;
+package ProductCatalog_tests;
 
 import Driver.BaseTestSelenide;
 import SelenidePages.Basket;
