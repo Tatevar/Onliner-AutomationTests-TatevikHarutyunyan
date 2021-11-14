@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Rest api tests" >
+<suite name="Rest Api tests" >
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
-    <listeners>
-        <listener class-name="TestNg.ListenerSelenide"/>
-    </listeners>
-
-    <test name="Basket tests">
+    <test name="tests" enabled="false">
         <classes>
-            <class name="ProductCatalog.BasketTest"></class>
+            <class name="RestApi.BasketTest"></class>
+        </classes>
+    </test>
+    <test name="test">
+        <classes>
+            <class name="RestApi.CreateUser"></class>
         </classes>
     </test>
 </suite>

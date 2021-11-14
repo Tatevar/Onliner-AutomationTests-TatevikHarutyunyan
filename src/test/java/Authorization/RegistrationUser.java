@@ -32,8 +32,15 @@ public class RegistrationUser extends BaseTestSelenium {
     public void createUser_test() {
         homePage.clickLoginbtn();
         loginPage.clickRegbtn();
-        registration.createUser(userCreation)
+        registration.createUser("tata@gmail.com","Password", "Password")
                     .checkConfirmationText("Перейти в почту Gmail");
+    }
+    @Test(groups = {"regressionTest"},priority = 1)
+    public void createInvalidUser_test() {
+        homePage.clickLoginbtn();
+        loginPage.clickRegbtn();
+        registration.createUser("test@test.com","Password", "Password")
+                .checkErrorText("E-mail находится в черном списке");
     }
 }
 

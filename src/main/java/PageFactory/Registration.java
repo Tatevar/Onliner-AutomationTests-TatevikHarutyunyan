@@ -24,21 +24,19 @@ public class Registration extends BasePage {
     @FindBy(xpath = "//a[contains(@class,'auth-button auth-button_appendant auth-button')]")
     WebElement buttonDisplayed;
 
-    @FindBy(xpath = ("//div[contains(@class,'auth-form__title auth-form__title_big')]"))
-    WebElement confirmText;
+    @FindBy(xpath = ("//div[contains(@class,'auth-form__description auth-form__description_error auth-form')]"))
+    WebElement errorText;
 
     public Registration() {
         PageFactory.initElements(driver, this);
 
     }
 
-    public Registration createUser(UserCreation userCreation) {
-        userCreation.setEmail("tataa@gmail.com");
-        userCreation.setPassword("bestpassword");
-        userCreation.setConfirmPassword("bestpassword");
-        this.email.sendKeys(userCreation.getEmail());
-        this.password.sendKeys(userCreation.getPassword());
-        this.confirmPassword.sendKeys(userCreation.getConfirmPassword());
+    public Registration createUser(String email, String password,String repeat_password) {
+
+       this.email.sendKeys(email);
+        this.password.sendKeys(password);
+        this.confirmPassword.sendKeys(repeat_password);
         this.submitBtn.click();
         return this;
 
@@ -49,5 +47,10 @@ public class Registration extends BasePage {
         return this;
 
     }
+    public Registration checkErrorText(String expectedText) {
+        pause(3);
+        Assert.assertEquals(this.errorText.getText(), expectedText);
+        return this;
 
+    }
 }

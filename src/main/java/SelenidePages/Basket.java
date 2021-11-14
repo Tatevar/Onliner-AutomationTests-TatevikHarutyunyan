@@ -16,7 +16,7 @@ public class Basket extends BasePageSelenide {
     @FindBy(css = ".cart-message__title.cart-message__title_big")
     SelenideElement emptyBasketText;
 
-    SelenideElement fullBasketText = $(By.xpath("(\"//a[contains(text(),'Вернуть ')]\")"));
+    SelenideElement fullBasket = $(By.cssSelector(".cart-form__offers-part.cart-form__offers-part_data"));
 
     SelenideElement closeBtn = $(byText("Закрыть"));
 
@@ -37,7 +37,7 @@ public class Basket extends BasePageSelenide {
     }
     public Basket checkProductsDisplayed() {
         pause(3);
-        fullBasketText.should(Condition.matchText("Вернуть товар"));
+        fullBasket.isDisplayed();
         return this;
     }
 }

@@ -3,6 +3,8 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
+
 import javax.annotation.Nonnull;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -13,7 +15,9 @@ public class Home extends BasePageSelenide {
     SelenideElement  categoryElectronics =$(By.xpath("//div[@class='g-middle-i']//span[contains(text(),'Электроника')]"));
     SelenideElement  electronicslist =$(By.xpath("//div[@class='catalog-navigation-list__aside-title'][contains(text(),'Гаджеты')]"));
     SelenideElement  electronicsItem =$(By.xpath("//span[contains(@class,'catalog-navigation-list__dropdown-title') and contains(text(),'Сменные ремешки и')]"));
-    SelenideElement logoutBtn = $(By.xpath("//div[@class='b-top-profile__logout']//a[@class='b-top-profile__link b-top-profile__link_secondary']"));
+    SelenideElement logoutBtn = $(By.xpath("//*[@class='auth-bar__item auth-bar__item--text']"));
+    @FindBy(css = ".b-top-profile__cart")
+    SelenideElement basketBtn;
 
     @Nonnull
     @CanIgnoreReturnValue
@@ -33,6 +37,11 @@ public class Home extends BasePageSelenide {
     }
     public Home clickLoginbtn() {
         logoutBtn.click();
+        return this;
+    }
+    public Home clickBasketBtn() {
+        pause(3);
+        basketBtn.click();
         return this;
     }
 }
