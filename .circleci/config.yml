@@ -23,6 +23,7 @@ jobs:
           name: Running tests
           command: mvn clean test -Dsuite="src/test/resources/Login_Registration.xml"
           when: always
+
       - run:
           name: Generate allure report
           command: mvn allure:report
@@ -32,6 +33,16 @@ jobs:
           when: always
       - store_artifacts:
           path: target/site/allure-maven-plugin/
+            - run:
+                name: Save test results
+                command: |
+                  mkdir -p ~/cucumber
+                  bundle exec cucumber --format junit --out ~/cucumber/junit.xml
+                when: always
+            - store_test_results:
+                path: ~/cucumber
+            - store_artifacts:
+                path: ~/cucumber
 workflows:
   version: 2
   commit:
