@@ -18,6 +18,11 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
+
+      - run:
+          name: Running tests
+          command: mvn clean test -Dsuite="src/test/resources/Login_Registration.xml"
+          when: always
       - run:
           name: Generate allure report
           command: mvn allure:report
