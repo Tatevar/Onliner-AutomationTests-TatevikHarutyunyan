@@ -38,8 +38,8 @@ jobs: # a collection of steps
       - run:
           name: Run tests in parallel # See: https://circleci.com/docs/2.0/parallelism-faster-jobs/
           # Use "./gradlew test" instead if tests are not run in parallel
-          command: mvn clean test -Dsuite="src/test/resources/Login_Registration.xml"
-            cd src/test/java
+          command: |
+            cd src/test/resources/Login_Registration.xml
             # Get list of classnames of tests that should run on this node
             CLASSNAMES=$(circleci tests glob "**/*.java" \
               | cut -c 1- | sed 's@/@.@g' \
