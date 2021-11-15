@@ -58,4 +58,8 @@ public class Catalog extends BasePageSelenide {
         favIconText.shouldBe(text("В закладках"));
         return this;
     }
+    public Catalog clickBasketBtn() {
+        basketBtn.click();
+        return this;
+    }
 }

@@ -1,6 +1,6 @@
 package PageObject;
 
-import Patterns.UserBuilder;
+import Users.UserBuilder;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 

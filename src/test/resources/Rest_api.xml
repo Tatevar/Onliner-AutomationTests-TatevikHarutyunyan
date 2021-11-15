@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="product" >
+<suite name="Rest Api tests" >
     <groups>
         <run>
             <include name="smokeTest"/>
@@ -9,9 +9,14 @@
     </groups>
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
-    <test name="Add product">
+    <test name="tests" >
         <classes>
-            <class name="ProductCatalog_tests.AddingProduct"></class>
+            <class name="RestApi_tests.BasketTest"></class>
+        </classes>
+    </test>
+    <test name="test" enabled="false">
+        <classes>
+            <class name="RestApi_tests.CreateUser"></class>
         </classes>
     </test>
 </suite>

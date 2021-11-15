@@ -1,4 +1,4 @@
-package Patterns;
+package Users;
 
 import lombok.Builder;
 import lombok.ToString;

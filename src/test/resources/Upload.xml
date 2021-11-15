@@ -13,7 +13,7 @@
         <parameter name="email" value="tatevar93@gmail.com"></parameter>
         <parameter name="password" value="onlinertest"></parameter>
         <classes>
-            <class name="Uploader.Upload"></class>
+            <class name="Uploader_tests.Upload"></class>
         </classes>
     </test>
 </suite>

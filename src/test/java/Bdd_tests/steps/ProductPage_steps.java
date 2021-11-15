@@ -1,7 +1,7 @@
 package Bdd_tests.steps;
 
 import Driver.BaseTestSelenide;
-import Patterns.UserBuilder;
+import Users.UserBuilder;
 import SelenidePages.Catalog;
 import SelenidePages.ElectronicFilter;
 import SelenidePages.UserData;
