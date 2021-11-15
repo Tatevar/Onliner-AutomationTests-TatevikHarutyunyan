@@ -6,7 +6,7 @@ version: 2
 jobs:
   ui-tests:
     docker:
-      - image: circleci/node:8.10.0
+      - image: circleci/openjdk:11.0.8-jdk-browsers
     steps:
       - checkout
       - restore_cache:
@@ -21,13 +21,14 @@ jobs:
 
       - run:
           name: Running tests
-          command: mvn clean test -Dsuite="src/test/resources/Filter.xml"
+          command: mvn clean test
       - run:
           name: Generate allure report
           command: mvn allure:report
           when: always
       - store_test_results:
           path: target/surefire-reports/junitreports
+          when: always
       - store_artifacts:
           path: target/site/allure-maven-plugin/
 workflows:
