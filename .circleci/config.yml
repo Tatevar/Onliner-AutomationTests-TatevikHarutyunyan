@@ -21,7 +21,7 @@ jobs:
 
       - run:
           name: Running tests
-          command: mvn clean test -Dsuite="src/test/resources/Login_Registration.xml"
+          command: mvn clean test
       - run:
           name: Generate allure report
           command: mvn allure:report
@@ -43,6 +43,6 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - master
     jobs:
       - ui-tests
