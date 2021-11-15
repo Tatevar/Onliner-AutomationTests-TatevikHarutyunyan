@@ -16,7 +16,6 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       - run:
-          name: Running tests
           command: mvn clean test -Dsuite="src/test/resources/Upload.xml"
 
       - run:
@@ -24,7 +23,7 @@ jobs:
           command: mvn allure:report
           when: always
       - store_test_results:
-          path: target/surefire-reports
+          path: target/surefire-reports/junitreports
           when: always
       - store_artifacts:
           path: target/site/allure-maven-plugin/
@@ -40,6 +39,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                -master
     jobs:
       - ui-tests
