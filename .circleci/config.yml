@@ -45,7 +45,7 @@ jobs:
       version: 2
       commit:
         jobs:
-          - ui-tests
+          - build-and-test
       periodical:
         triggers:
           - schedule:
