@@ -17,6 +17,7 @@ public class AccountPage extends BasePage {
     private By accountDropdown = By.cssSelector(".b-top-profile__item.b-top-profile__item_arrow .b-top-profile__preview.js-toggle-bar");
     private By logoutBtn = By.xpath("//div[@class='b-top-profile__logout']//a[@class='b-top-profile__link b-top-profile__link_secondary']");
     private String userDir = System.getProperty("user.dir");
+    private By accountDataTab = By.xpath("//a[contains(@class,'profile-form__anchor-item router-link-exact-activ')]");
 
     public AccountPage dragDropUpload(String imgName){
         actions.contextClick(driver.findElement(hoverTheImage)).perform();

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Boundary Tests">
+    <parameter name="env" value="onliner"></parameter>
+    <parameter name="browser" value="Chrome"></parameter>
+    <test name="check field">
+        <classes>
+            <class name="Dataprovider.Boundary_tests"></class>
+        </classes>
+    </test>
+</suite>
