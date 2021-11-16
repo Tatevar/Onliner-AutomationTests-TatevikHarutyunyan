@@ -48,6 +48,6 @@ workflows:
           filters:
             branches:
               only:
-                - bound_test
+                - master
     jobs:
       - ui-tests
