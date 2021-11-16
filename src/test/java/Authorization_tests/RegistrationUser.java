@@ -3,6 +3,7 @@ import Driver.BaseTestSelenium;
 
 import PageObject.HomePage;
 import PageObject.LoginPage;
+import TestNg.Retry;
 import Users.UserCreation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -35,7 +36,7 @@ public class RegistrationUser extends BaseTestSelenium {
         registration.createUser("tata@gmail.com","Password", "Password")
                     .checkConfirmationText("Перейти в почту Gmail");
     }
-    @Test(groups = {"regressionTest"},priority = 1)
+    @Test(groups = {"regressionTest"},priority = 1, retryAnalyzer= Retry.class)
     public void createInvalidUser_test() {
         homePage.clickLoginbtn();
         loginPage.clickRegbtn();

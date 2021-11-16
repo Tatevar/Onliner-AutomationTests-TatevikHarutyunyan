@@ -14,7 +14,7 @@
             <class name="Authorization_tests.RegistrationUser"></class>
         </classes>
     </test>
-    <test name="Login" enabled="false">
+    <test name="Login">
         <parameter name="email" value="tatevar93@gmail.com"></parameter>
         <parameter name="password" value="onlinertest"></parameter>
         <parameter name="errorText" value="Неверный логин или пароль"></parameter>

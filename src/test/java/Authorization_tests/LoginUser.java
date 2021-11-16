@@ -5,6 +5,7 @@ import PageFactory.Registration;
 import PageObject.HomePage;
 import PageObject.HomeMenuItemEnum;
 import PageObject.LoginPage;
+import TestNg.Retry;
 import Users.UserBuilder;
 import Users.UserCreation;
 import org.testng.annotations.*;
@@ -29,7 +30,7 @@ public class LoginUser extends BaseTestSelenium {
     }
 
     @Parameters({"email", "password"})
-    @Test(groups = {"smokeTest"},priority = 1)
+    @Test(groups = {"smokeTest"},priority = 1,retryAnalyzer= Retry.class)
     public void LoginUser_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
@@ -92,7 +93,7 @@ public class LoginUser extends BaseTestSelenium {
                 .verifyHomePage();
     }
     @Parameters({"email", "password"})
-    @Test(groups = {"regressionTest"},dependsOnGroups = {"smokeTest"}, priority= 4)
+   @Test(groups = {"regressionTest"},dependsOnGroups = {"smokeTest"}, priority= 4)
     public void openDialogWindow_test(String email, String password) {
         UserBuilder user = UserBuilder
                 .builder()
