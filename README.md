@@ -1,14 +1,14 @@
 # Onliner-AutomationTests-TatevikHarutyunyan
 # Project Structure
-* Java version >= 11
+* Java
 * Maven
-* Selenide + selenium+ TestNG
+* Selenide + selenium + TestNG
 * Cucumber 
 * Rest assure Api
 * Realization PageObject, Page Factory,UserBuilder,Value object patterns
 * Building the project through mvn commands + testng.xml
 * Allure reports are connected
-* Ci/Cd
+* Ci/Cd Jenkins
 # Driver Implementation
 
 Driver implemented in a `src/main/java/Driver`
