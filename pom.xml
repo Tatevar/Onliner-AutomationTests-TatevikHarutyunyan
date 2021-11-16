@@ -12,9 +12,10 @@
         <selenide.version>5.25.0</selenide.version>
         <lombok.version>1.18.22</lombok.version>
         <cucumber.version>4.7.1</cucumber.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <suite></suite>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
     </properties>
     <build>
         <plugins>
