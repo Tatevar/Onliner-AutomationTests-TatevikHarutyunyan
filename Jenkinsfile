@@ -6,14 +6,17 @@ pipeline {
         maven "M3"
     }
 
+    environment {
+        TEST_XML = "${params.TEST}"
+    }
+
     stages {
         stage('Test run') {
             steps {
                 // Run Maven on a Unix agent.
-                bat 'mvn clean test -Dsuite="src/test/resources/BoundaryTesting.xml"'
+                bat 'mvn clean test -Dsuite="${env.TEST_XML}"'
             }
         }
-
         /* stage('Reports') {
             steps {
                 script {
