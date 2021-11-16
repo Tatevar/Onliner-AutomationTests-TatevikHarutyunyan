@@ -14,7 +14,7 @@ public class Boundary_tests extends BaseTestSelenide {
     String acceptAble = "555555555";
     String notProductText = "Упс! У нас нет таких товаров, попробуйте изменить условия поиска.";
 
-    @DataProvider(name = "User tries to add valid and invalid data to the field")
+    @DataProvider(name = "User tries to add valid and invalid data to the field", parallel = true)
     public Object[][] data() {
         return new Object[][]{
                 {emptyField, emptyField,notProductText },
