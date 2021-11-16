@@ -11,6 +11,7 @@ jobs:
       - checkout
       - run:
          command: mvn clean install -DskipTests
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "pom.xml" }}
