@@ -25,7 +25,7 @@ public class Boundary_tests extends BaseTestSelenide {
     }
 
     @Test(dataProvider = "User tries to add valid and invalid data to the field")
-    public void SignIn_Tests(String priceFrom, String priceTo,String errorText) {
+    public void productPriceFieldCheck_Tests(String priceFrom, String priceTo,String errorText) {
         get(Home.class)
                 .addElectronicsProduct();
         get(ElectronicFilter.class)
