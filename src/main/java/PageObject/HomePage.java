@@ -24,6 +24,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage verifyHomePage() {
+        pause(5);
         isDisplayed(logo);
         return this;
     }

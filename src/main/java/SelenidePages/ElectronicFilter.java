@@ -1,8 +1,8 @@
 package SelenidePages;
 import com.codeborne.selenide.SelenideElement;
+import org.testng.Assert;
 
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ElectronicFilter extends BasePageSelenide {
@@ -14,6 +14,7 @@ public class ElectronicFilter extends BasePageSelenide {
     SelenideElement priceTo = $(byXpath("//*[@id=\"schema-filter\"]/div[3]/div[5]/div[2]/div/div[2]/input"));
     SelenideElement getFilterDisp3 = $(byXpath("//div[@class='schema-tags__item' and @title='Минимальная цена']"));
     SelenideElement chooseProduct = $(byText("Ремешок Apple из плетеного нейлона 44 мм (угольный, размер R) MYAA2"));
+    SelenideElement notProductTextDisplayed = $(byCssSelector(".schema-products__message"));
 
     public ElectronicFilter filterPage() {
         pause(5);
@@ -23,14 +24,32 @@ public class ElectronicFilter extends BasePageSelenide {
         beltType.click();
         return this;
     }
-    public ElectronicFilter checkTheFilterIsDisplayed(){
+
+    public ElectronicFilter checkTheFilterIsDisplayed() {
         filterDisp.scrollTo().isDisplayed();
         filterDisp2.scrollTo().isDisplayed();
         getFilterDisp3.scrollTo().isDisplayed();
         return this;
     }
-    public ElectronicFilter chooseProduct(){
-       chooseProduct.click();
+
+    public ElectronicFilter chooseProduct() {
+        chooseProduct.click();
+        return this;
+    }
+
+    public ElectronicFilter addDataToPriceFiled(String pricefor, String priceto) {
+        priceFrom.scrollTo().setValue(pricefor);
+        priceTo.setValue(priceto);
+        return this;
+    }
+
+    public ElectronicFilter checkPriceFilterIsDisplayed() {
+        getFilterDisp3.scrollTo().isDisplayed();
+        return this;
+    }
+
+    public ElectronicFilter checkErrorText(String expectedText) {
+        Assert.assertEquals(notProductTextDisplayed.scrollTo().getText(), expectedText);
         return this;
     }
 }

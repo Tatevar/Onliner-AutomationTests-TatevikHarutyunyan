@@ -48,11 +48,6 @@ public class BasePage {
             return driver.findElement(element).getText();
         }
 
-        protected Integer getCountElements(By element) {
-            log.info("Get Elements ::" + element);
-            return driver.findElements(element).size();
-        }
-
         protected void isDisplayed(By... elements) {
             log.info("The Element ::" + elements + " is displayed");
             for (By element : elements) {

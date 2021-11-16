@@ -12,6 +12,9 @@ public class Registration extends BasePage {
     @FindBy(xpath = "//input[(@type='email')]")
     WebElement email;
 
+    @FindBy(xpath = "//span[@class='i-checkbox__faux']")
+    WebElement checkbox;
+
     @FindBy(xpath = "//input[@type='password' and @placeholder='Придумайте пароль']")
     WebElement password;
 
@@ -34,9 +37,10 @@ public class Registration extends BasePage {
 
     public Registration createUser(String email, String password,String repeat_password) {
 
-       this.email.sendKeys(email);
+        this.email.sendKeys(email);
         this.password.sendKeys(password);
         this.confirmPassword.sendKeys(repeat_password);
+        this.checkbox.click();
         this.submitBtn.click();
         return this;
 
