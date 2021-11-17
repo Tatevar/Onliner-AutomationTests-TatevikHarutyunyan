@@ -22,5 +22,4 @@
             <class name="Authorization_tests.LoginUser"></class>
         </classes>
     </test>
-
 </suite>

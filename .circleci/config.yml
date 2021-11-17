@@ -22,7 +22,7 @@ jobs:
       - run:
          command: mvn clean install -DskipTests
       - run:
-          name: Running tests
+          name: running tests
           command: mvn clean test -Dsuite="src/test/resources/BoundaryTesting.xml"
 
       - run:

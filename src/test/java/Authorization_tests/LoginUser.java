@@ -1,6 +1,7 @@
 package Authorization_tests;
 
 import Driver.BaseTestSelenium;
+import Driver.DriverCreation;
 import PageFactory.Registration;
 import PageObject.HomePage;
 import PageObject.HomeMenuItemEnum;
@@ -10,7 +11,7 @@ import Users.UserBuilder;
 import Users.UserCreation;
 import org.testng.annotations.*;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static Driver.DriverCreation.quitDriver;
 
 public class LoginUser extends BaseTestSelenium {
     HomePage homePage;
@@ -83,13 +84,6 @@ public class LoginUser extends BaseTestSelenium {
     @Parameters({"email", "password"})
     @Test(groups = {"smokeTest"},priority = 2)
     public void LogOutUser_test(String email, String password) {
-        UserBuilder user = UserBuilder
-                .builder()
-                .email(email)
-                .password(password)
-                .build();
-        homePage.clickLoginbtn();
-        loginPage.loginWithUserData(user);
         homePage
                 .logOutUser()
                 .verifyHomePage();
@@ -107,5 +101,9 @@ public class LoginUser extends BaseTestSelenium {
         homePage
                 .verifyHomePage()
                 .clickNotificationIocn("Отметить все как прочитанные");
+    }
+    @AfterMethod
+    public void post(){
+        quitDriver();
     }
 }
