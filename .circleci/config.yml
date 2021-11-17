@@ -19,10 +19,10 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
+
       - run:
          command: mvn clean install -DskipTests
-      - run:
-          command: mvn clean install
+
       - run:
           name: Running tests
           command: mvn clean test -Dsuite="src/test/resources/BoundaryTesting.xml"
@@ -48,6 +48,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - Jenkins
     jobs:
       - ui-tests
