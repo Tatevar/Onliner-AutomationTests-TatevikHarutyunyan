@@ -22,6 +22,9 @@ jobs:
       - run:
          command: mvn clean install -DskipTests
       - run:
+          test:
+            override:
+            - mvn clean install
           name: Running tests
           command: mvn clean test -Dsuite="src/test/resources/BoundaryTesting.xml"
 
