@@ -25,8 +25,7 @@ jobs:
 
       - run:
           name: Running tests
-          command: mvn clean test -Dsuite="src/test/resources/BoundaryTesting.xml"
-
+          command: -Dsuite="src/test/resources/BoundaryTesting.xml" -Denv=Onliner
       - run:
           name: Generate allure report
           command: mvn allure:report
