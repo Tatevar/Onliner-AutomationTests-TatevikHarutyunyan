@@ -44,5 +44,10 @@ in a xml file
 * Test can be ran manual , by xml file 
 * Can be ran my mvn command line 
 * Can't be run by class, if the Xml file, environment and url are setup in a property file , which is reading 
-by xml file
+by xml file 
+  #Allure reporting 
+  Allure Reporting command which generate add opening the test results 
+  * mvn allure:serve
+  #Lombok/Logging
+  
 
