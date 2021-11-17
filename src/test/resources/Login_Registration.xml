@@ -9,7 +9,7 @@
     </groups>
     <parameter name="env" value="onliner"></parameter>
     <parameter name="browser" value="Chrome"></parameter>
-    <test name="Registration" >
+    <test name="Registration" enabled="false" >
         <classes>
             <class name="Authorization_tests.RegistrationUser"></class>
         </classes>
