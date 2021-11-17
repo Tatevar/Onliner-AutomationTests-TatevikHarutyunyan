@@ -10,6 +10,8 @@ import Users.UserBuilder;
 import Users.UserCreation;
 import org.testng.annotations.*;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public class LoginUser extends BaseTestSelenium {
     HomePage homePage;
     LoginPage loginPage;
@@ -105,6 +107,5 @@ public class LoginUser extends BaseTestSelenium {
         homePage
                 .verifyHomePage()
                 .clickNotificationIocn("Отметить все как прочитанные");
-
     }
 }
