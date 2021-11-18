@@ -39,6 +39,7 @@ public class HomePage extends BasePage {
     public HomePage clickNotificationIocn(String expectedText) {
         pause(5);
         click(notificationIcon);
+        pause(2);
         Assert.assertEquals(getElementText(dialogWindow), expectedText);
         return this;
     }

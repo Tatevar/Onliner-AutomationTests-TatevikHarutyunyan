@@ -82,8 +82,8 @@ public class LoginUser extends BaseTestSelenium {
     }
 
     @Parameters({"email", "password"})
-    @Test(groups = {"smokeTest"},priority = 2)
-    public void LogOutUser_test(String email, String password) {
+    @Test(groups = {"smokeTest"},priority = 2, retryAnalyzer= Retry.class)
+    public void LogOutUser_test() {
         homePage
                 .logOutUser()
                 .verifyHomePage();
