@@ -38,7 +38,7 @@ public class AccountPage extends BasePage {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        pause(3);
+        pause(5);
         click(saveBtn);
         return this;
     }
