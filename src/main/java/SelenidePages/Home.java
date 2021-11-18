@@ -24,6 +24,7 @@ public class Home extends BasePageSelenide {
     public Home addBeautyAndSportProduct(){
         categoryBeauty.click();
         Selenide.actions().moveToElement(categoryList).click(categoryList).perform();
+        pause(2);
         categoryItem.scrollTo().click();
         return this;
     }

@@ -4,6 +4,7 @@ import Driver.BaseTestSelenide;
 import SelenidePages.Basket;
 import SelenidePages.Catalog;
 import SelenidePages.Home;
+import TestNg.Retry;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,7 @@ public class AddingProduct extends BaseTestSelenide {
         get(Catalog.class)
                 .tickCheckbox();
     }
-    @Test(groups = {"regressionTest"},priority = 2)
+    @Test(groups = {"regressionTest"},priority = 2, retryAnalyzer= Retry.class)
     public void emptyTheComparedList_test() {
         get(Home.class)
                 .addBeautyAndSportProduct();
