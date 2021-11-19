@@ -43,16 +43,6 @@ public class LoginUser extends BaseTestSelenium {
         homePage.clickLoginbtn();
         loginPage.loginWithUserData(user);
         homePage.verifyHomePage();
-        HomeMenuItemEnum.ELECTRONICS.getMenuText();
-        HomeMenuItemEnum.APPLIANCES.getMenuText();
-        HomeMenuItemEnum.COMPUTERS.getMenuText();
-        HomeMenuItemEnum.CAR.getMenuText();
-        HomeMenuItemEnum.BEUTYANDSPORT.getMenuText();
-        HomeMenuItemEnum.CONSTRACTIONSANDREPAIR.getMenuText();
-        HomeMenuItemEnum.HOUSE.getMenuText();
-        HomeMenuItemEnum.FOOD.getMenuText();
-        HomeMenuItemEnum.MOMMIESANDBABIES.getMenuText();
-        HomeMenuItemEnum.WORKANDOFFICE.getMenuText();
 
     }
 
