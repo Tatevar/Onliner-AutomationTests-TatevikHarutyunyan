@@ -8,4 +8,5 @@ import lombok.ToString;
 public class UserBuilder {
      public String email;
      public String password;
+     
     }
